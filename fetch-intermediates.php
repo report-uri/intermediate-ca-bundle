@@ -13,6 +13,4 @@ foreach($data as $item) {
 }
 
 $text = implode("\r\n\r\n", $certs)."\r\n\r\n";
-file_put_contents('intermediate-bundle.crt', $text);
-
-?>
+file_put_contents(__DIR__ . '/res/intermediate-ca-bundle.pem', $text);

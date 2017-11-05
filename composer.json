@@ -1,0 +1,36 @@
+{
+    "name": "report-uri/intermediate-ca-bundle",
+    "description": "Mozilla Intermediate CA utilities, including the bundle",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "cabundle",
+        "cacert",
+        "certificate",
+        "ssl",
+        "tls"
+    ],
+    "authors": [
+        {
+            "name": "Scott Helme",
+            "email": "scotthelme@hotmail.com",
+            "homepage": "https://report-uri.com/"
+        },
+        {
+            "name": "Michal Špaček",
+            "homepage": "https://www.michalspacek.com",
+            "email": "mail@michalspacek.cz"
+        }
+    ],
+    "require": {
+        "php": "^7.0"
+    },
+    "suggest": {
+        "composer/ca-bundle": "If you also need to work with the root CA bundle, not just Intermediate CA certificates."
+    },
+    "autoload": {
+        "psr-4": {
+            "ReportUri\\IntermediateCaBundle\\": "src"
+        }
+    }   
+}

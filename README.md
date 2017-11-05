@@ -1,2 +1,2 @@
-# Fetch-NSS
-Fetch the NSS Root Store and CCADB Intermediate Store. 
+# intermediate-ca-bundle
+Fetch the CCADB Intermediate Store.

@@ -3,7 +3,8 @@ declare(strict_types=1);
 
 namespace ReportUri\IntermediateCaBundle;
 
-class Certificate {
+class Certificate
+{
     const BEGIN_MARKER   = '-----BEGIN CERTIFICATE-----';
     const END_MARKER     = '-----END CERTIFICATE-----';
     const END_MARKER_LEN = 25;
@@ -16,7 +17,8 @@ class Certificate {
     /**
      * @param string $rawValue
      */
-    private function __construct(string $rawValue) {
+    private function __construct(string $rawValue)
+    {
         $this->rawValue = $rawValue;
     }
 
@@ -27,7 +29,8 @@ class Certificate {
      * @param string $item
      * @return ?self
      */
-    public static function create(string $item) {
+    public static function create(string $item)
+    {
         $start = \strpos($item, self::BEGIN_MARKER);
 
         if ($start === false) { return null; }
@@ -41,7 +44,8 @@ class Certificate {
      * @param self $cert
      * @return string
      */
-    public static function rawValue(self $cert) : string {
+    public static function rawValue(self $cert) : string
+    {
         return $cert->rawValue;
     }
 }

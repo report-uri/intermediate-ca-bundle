@@ -3,12 +3,14 @@ declare(strict_types=1);
 
 namespace ReportUri\IntermediateCaBundle\IO;
 
-abstract class CsvRetriever {
+abstract class CsvRetriever
+{
     /**
      * @param string $csvUrl
      * @return string[]
      */
-    public static function getArray(string $csvUrl) : array {
+    public static function getArray(string $csvUrl) : array
+    {
         $csv = file_get_contents($csvUrl);
 
         /**

@@ -1,16 +1,13 @@
 <?php
+declare(strict_types=1);
+namespace ReportUri\IntermediateCaBundle;
+require_once 'vendor/autoload.php';
 
-$certs = array();
-$csv = file_get_contents('https://ccadb-public.secure.force.com/mozilla/PublicAllIntermediateCertsWithPEMCSV');
-$data = str_getcsv($csv);
+const CERT_LIST_URL = 'https://ccadb-public.secure.force.com/mozilla/'
+                    . 'PublicAllIntermediateCertsWithPEMCSV';
 
-foreach($data as $item) {
-    $start = strpos($item, '-----BEGIN CERTIFICATE-----');
-    if($start !== false) {
-        $end = strpos($item, '-----END CERTIFICATE-----', $start) + 25;
-        $certs[] = substr($item, $start, $end - $start);
-    }
-}
+$data    = IO\CsvRetriever::getArray(CERT_LIST_URL);
+$certs   = array_filter(array_map([Certificate::class, 'create'], $data));
+$outFile = IntermediateCaBundle::getBundledIntermediateCaBundlePath();
 
-$text = implode("\r\n\r\n", $certs)."\r\n\r\n";
-file_put_contents(__DIR__ . '/res/intermediate-ca-bundle.pem', $text);
+IO\Output::writeTo($outFile, ...$certs);

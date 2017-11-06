@@ -20,6 +20,11 @@
             "name": "Michal Špaček",
             "homepage": "https://www.michalspacek.com",
             "email": "mail@michalspacek.cz"
+        },
+        {
+            "name": "Aidan Woods",
+            "email": "aidantwoods+reportUriCaBundle@gmail.com",
+            "homepage": "https://aidanwoods.com"
         }
     ],
     "require": {

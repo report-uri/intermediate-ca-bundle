@@ -11,7 +11,7 @@ abstract class CsvRetriever
      */
     public static function getArray(string $csvUrl) : array
     {
-        $csv = file_get_contents($csvUrl);
+        $csv = \file_get_contents($csvUrl);
 
         /**
          * PHP will emit explanatory a warnings if the above fails, we will
@@ -21,6 +21,6 @@ abstract class CsvRetriever
             throw new NetworkFailure("Could not get specified URL: $csvUrl");
         }
 
-        return str_getcsv($csv);
+        return \str_getcsv($csv);
     }
 }

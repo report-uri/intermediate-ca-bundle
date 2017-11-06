@@ -15,13 +15,13 @@ abstract class Output
      */
     public static function serialiseCerts(Certificate ...$certs) : string
     {
-        $certStrings = array_map([Certificate::class, 'rawValue'], $certs);
+        $certStrings = \array_map([Certificate::class, 'rawValue'], $certs);
 
-        return implode(self::DELIMITER, $certStrings) . self::DELIMITER;
+        return \implode(self::DELIMITER, $certStrings) . self::DELIMITER;
     }
 
     public static function writeTo(string $file, Certificate ...$certs)
     {
-        file_put_contents($file, self::serialiseCerts(...$certs));
+        \file_put_contents($file, self::serialiseCerts(...$certs));
     }
 }

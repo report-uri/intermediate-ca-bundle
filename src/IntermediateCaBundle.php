@@ -15,6 +15,6 @@ class IntermediateCaBundle
      */
     public static function getBundledIntermediateCaBundlePath() : string
     {
-        return realpath(__DIR__.'/../res/intermediate-ca-bundle.pem');
+        return \realpath(__DIR__.'/../res/intermediate-ca-bundle.pem');
     }
 }

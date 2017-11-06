@@ -14,8 +14,8 @@ abstract class CsvRetriever
         $csv = file_get_contents($csvUrl);
 
         /**
-         * PHP will explanatory a warnings if the above fails, we will convert
-         * it to an exception.
+         * PHP will emit explanatory a warnings if the above fails, we will
+         * convert failure to an exception.
          */
         if ($csv === false) {
             throw new NetworkFailure("Could not get specified URL: $csvUrl");

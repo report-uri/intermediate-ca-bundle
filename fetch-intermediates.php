@@ -1,7 +1,12 @@
 <?php
 declare(strict_types=1);
 namespace ReportUri\IntermediateCaBundle;
-require_once 'vendor/autoload.php';
+
+if (is_file(__DIR__.'/vendor/autoload.php')) {
+    require_once __DIR__.'/vendor/autoload.php';
+} else {
+    require_once __DIR__.'/autoload.php';
+}
 
 const CERT_LIST_URL = 'https://ccadb-public.secure.force.com/mozilla/'
                     . 'PublicAllIntermediateCertsWithPEMCSV';

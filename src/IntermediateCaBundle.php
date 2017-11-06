@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 /*
  * This file is part of report-uri/intermediate-ca-bundle.
@@ -13,7 +14,7 @@ class IntermediateCaBundle
      *
      * @return string path to a Intermediate CA bundle file
      */
-    public static function getBundledIntermediateCaBundlePath()
+    public static function getBundledIntermediateCaBundlePath(): string
     {
         return __DIR__.'/../res/intermediate-ca-bundle.pem';
     }

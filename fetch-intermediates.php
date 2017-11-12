@@ -25,8 +25,8 @@ $maybeCerts = array_map(
 
 $certs = array_filter(
     $maybeCerts,
-    function($item): bool {
-        return $item !== null;
+    function ($item): bool {
+        return openssl_x509_parse($item) !== false;
     }
 );
 

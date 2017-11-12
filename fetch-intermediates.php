@@ -18,7 +18,7 @@ $maybeCerts = array_map(
 
         $end = strpos($item, '-----END CERTIFICATE-----', $start) + 25;
 
-        return substr($item, $start, $end - $start);
+        return str_replace("\r\n", "\n", substr($item, $start, $end - $start));
     },
     $data
 );
@@ -30,5 +30,5 @@ $certs = array_filter(
     }
 );
 
-$text = implode("\r\n\r\n", $certs)."\r\n\r\n";
+$text = implode("\n\n", $certs)."\n\n";
 file_put_contents(__DIR__ . '/res/intermediate-ca-bundle.pem', $text);

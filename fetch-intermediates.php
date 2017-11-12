@@ -18,7 +18,7 @@ $maybeCerts = array_map(
 
         $end = strpos($item, '-----END CERTIFICATE-----', $start) + 25;
 
-        return str_replace("\r\n", "\n", substr($item, $start, $end - $start));
+        return str_replace(["\r\n", "\n\n"], "\n", substr($item, $start, $end - $start));
     },
     $data
 );
